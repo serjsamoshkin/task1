@@ -1,8 +1,12 @@
 
 import model.Sentence;
+import model.SentenceIsCompleteException;
 import org.junit.Assert;
 import org.junit.Test;
 
+/**
+ * Uses for testing Sentence class
+ */
 public class ModelTest {
 
     @Test
@@ -37,6 +41,23 @@ public class ModelTest {
         Assert.assertNotNull("summary text is null value", sentence.getText());
         Assert.assertFalse("summary text is empty", sentence.getText() == "");
 
+    }
+
+    @Test(expected = SentenceIsCompleteException.class)
+    public void testSentenceIsCompleteException() throws Exception{
+        Sentence sentence = new Sentence();
+
+        String[] patterns = sentence.getPatterns();
+        Assert.assertNotNull("null patterns list", patterns);
+        Assert.assertTrue("patterns list is empty", patterns.length>0);
+
+        for (int i = 0; i < patterns.length; i++) {
+            String text =  patterns[i];
+
+            sentence.setWord(text);
+        }
+        // extra adding, here I expect exception
+        sentence.setWord(" ");
     }
 
 }

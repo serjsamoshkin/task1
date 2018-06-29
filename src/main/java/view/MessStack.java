@@ -11,7 +11,6 @@ public enum MessStack {
     FORMAT_EXCEPTION("Введено неверное слово, повторите попытку..."),
     GOOD_BYE("Вы справились с заданием, поздравляю!\nВведенная фраза:");
 
-
     private String message;
 
     MessStack(String message) {

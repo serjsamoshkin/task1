@@ -3,7 +3,6 @@ package model;
 /**
  * Contains patterns to control correctness of the input
  */
-
 public enum WordPatterns {
 
     WORD_1("Hello"),

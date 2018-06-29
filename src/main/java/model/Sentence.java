@@ -14,8 +14,6 @@ public class Sentence {
     private int position;
     private int maxPosition;
 
-    private String[] strPatterns;
-
     public Sentence() {
         patterns = WordPatterns.values();
         position = 0;
@@ -25,13 +23,14 @@ public class Sentence {
     }
 
     /**
-     * Copies the original array of word patterns
+     * Copies and converts to String[] the original array of word patterns
      * @return String[] - array of word patterns
      */
     public String[] getPatterns(){
 
         int quantity = patterns.length;
-        strPatterns = new String[quantity];
+        String[] strPatterns = new String[quantity];
+
         for (int i = 0; i < quantity; i++) {
             strPatterns[i] = patterns[i].getText();
         }
